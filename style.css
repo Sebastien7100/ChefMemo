@@ -1,0 +1,217 @@
+:root {
+    --primary: #e76f51;       /* Un bel orange terre cuite plus chaleureux */
+    --secondary: #2a9d8f;     /* Un vert d'eau élégant pour les catégories */
+    --dark: #264653;          /* Un bleu-gris foncé pour les textes importants */
+    --light-bg: #faf8f5;      /* Fond crème doux pour casser le blanc */
+    --card-bg: #ffffff;       /* Fond des blocs */
+    --border-color: #e2decb;  /* Bordures douces teintées */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--dark);
+    padding: 30px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 { 
+    color: var(--primary); 
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+}
+
+@media (max-width: 900px) {
+    .container { grid-template-columns: 1fr; }
+}
+
+/* Formulaires et Sections */
+.form-section, .display-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-section h2, .display-section h2 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    border-left: 4px solid var(--primary);
+    padding-left: 10px;
+}
+
+form {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(38, 70, 83, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+input[type="text"], textarea, select {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fdfdfd;
+    color: var(--dark);
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+textarea { min-height: 140px; resize: vertical; }
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover { 
+    background-color: #d65a3d; 
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Style pour l'aide du raccourci clavier */
+.shortcut-help {
+    font-size: 0.9rem;
+    color: #6c757d;
+    line-height: 1.5;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #f4f1ea;
+    border-radius: 6px;
+    border-left: 3px solid #ccc;
+}
+
+/* Style des touches de clavier */
+kbd {
+    background-color: #ffffff;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.85rem;
+    font-family: monospace;
+    font-weight: bold;
+    color: #333;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+/* Filtres */
+.filter-bar { display: flex; gap: 10px; }
+.filter-bar input { flex: 2; }
+.filter-bar select { flex: 1; }
+
+/* Grille et Cartes de recettes */
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.recipe-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(38, 70, 83, 0.04);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(38, 70, 83, 0.08);
+    border-color: #c9c4b0;
+}
+
+.recipe-card h3 {
+    font-size: 1.25rem;
+    color: var(--dark);
+    margin-top: 5px;
+}
+
+.recipe-category {
+    background: var(--secondary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    align-self: flex-start;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-delete-btn {
+    background-color: #e63946;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    align-self: flex-end;
+}
+.card-delete-btn:hover { background-color: #bd2130; }
+
+/* Page de détails */
+.details-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 6px 20px rgba(38, 70, 83, 0.06);
+}
+
+.back-btn { background-color: var(--dark); margin-bottom: 25px; }
+.back-btn:hover { background-color: #1d353f; }
+
+#detail-title { margin: 15px 0 5px 0; font-size: 2.6rem; color: var(--dark); }
+hr { border: 0; height: 1px; background: var(--border-color); margin: 20px 0; }
+.detail-content h3 { margin: 25px 0 10px 0; color: var(--primary); font-size: 1.3rem; }
+.detail-content p { font-size: 1.1rem; line-height: 1.7; white-space: pre-line; color: #3d5a6c; }

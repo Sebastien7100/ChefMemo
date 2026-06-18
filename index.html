@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChefMemo - Gestionnaire de Recettes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-page">
+        <header>
+            <h1>🍳 ChefMemo</h1>
+            <p>Copiez-collez vos textes de recettes pour les trier instantanément</p>
+        </header>
+
+        <main class="container">
+            <section class="form-section">
+                <h2>Numériser une recette</h2>
+                <form id="recipe-form">
+                    <input type="text" id="title" placeholder="Nom de la recette (ex: Sablés au beurre)" required>
+                    <input type="text" id="category" placeholder="Catégorie (ex: Dessert)" required>
+                    
+                    <label class="file-label">📝 Collez le texte de la recette ici :</label>
+                    <textarea id="raw-text" placeholder="Collez le texte brut de votre photo ici (Le site détectera tout seul les ingrédients et les étapes)..." required></textarea>
+                    
+                    <button type="submit" id="submit-btn">Enregistrer la recette</button>
+                    
+                    <div class="shortcut-help">
+                        💡 Ouvrez votre image sur votre PC et utilisez la commande <kbd>⊞ Win</kbd> + <kbd>Maj</kbd> + <kbd>T</kbd> pour extraire le texte.
+                    </div>
+                </form>
+            </section>
+
+            <section class="display-section">
+                <h2>Mes Recettes</h2>
+                <div class="filter-bar">
+                    <input type="text" id="search-bar" placeholder="Rechercher une recette...">
+                    <select id="filter-category">
+                        <option value="all">Toutes les catégories</option>
+                    </select>
+                </div>
+                <div id="recipes-container" class="recipes-grid"></div>
+            </section>
+        </main>
+    </div>
+
+    <div id="details-page" style="display: none;">
+        <div class="details-container">
+            <button class="back-btn" id="back-btn">⬅ Retour à la liste</button>
+            <span id="detail-category" class="recipe-category"></span>
+            <h1 id="detail-title"></h1>
+            <hr>
+            <div class="detail-content">
+                <h3>🥑 Ingrédients</h3>
+                <p id="detail-ingredients"></p>
+                <h3>📝 Préparation</h3>
+                <p id="detail-steps"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
